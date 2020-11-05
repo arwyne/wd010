@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- lets change the title and lets follow the format -->
+    <title>WD034-04: Recursion-Palindrome</title>
+  </head>
+  <body>
+    <!-- lets include the script tag -->
+    <script>
+      // Our goal here is to create a function that will determine wether a word is a Palindrome or Not.
+
+      const isPalindrome = (word) => {
+        // declare a variable that will contain the length of the word/text.
+        let i = word.length;
+
+        // lets create a control structure that will determine wether the characters inside the word matches each other. -> for this example im going to use a nested "if-else".
+        if (i === 1 || i === 0) {
+          /* if branch
+           -> if the user inputs a single letter or blank ...automatically it will be considered as a palindrome
+           example: "a" or ""
+            this section of code will run of the given condition is met.
+           */
+          console.log(`It's a Palindrome.`);
+        } else if (word[0] === word[i - 1]) {
+          console.log(`${word[0]} is a match with ${word[i - 1]}`);
+          word = word.substr(1).slice(0, -1);
+          isPalindrome(word); //recursion call
+          // subtr(1) -> removes the first character of the string.
+          // slice(0, -1) -> removes the last character of the string.
+        } else {
+          // this section of code will run if the word does not meet any of the given conditions.
+          console.log(`It's Not a Palindrome.`);
+        }
+      };
+
+      // lets check our code so far
+      isPalindrome("racecar");
+    </script>
+  </body>
+</html>

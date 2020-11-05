@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 1. lets change the title of our document -->
+    <title>WD043-01: Bubble Sort</title>
+  </head>
+  <body>
+    <!-- 2. input script tag invoke an inline javascript -->
+    <script>
+      /* 3. create 2 variables
+            -> a variable that contains an array of numbers
+                for the example im going to use the variable name "array" and declare it using let.
+            -> let's get the length of the array on the first variable and let's put inside another variable.
+        */
+      let array = [10, 9, 8, 2, 1, 7];
+      let size = array.length;
+
+      // 4. lets display the array in console
+      console.log(array);
+
+      /* 5. Lets create a script that will describe the process of comparing the datas inside the array in each iteration
+
+        What is sorting?
+            -> arrange systematically in groups; seperate according to type, class, etc.
+
+        What is Bubble sorting?
+            -> Bubble sorting is sometimes referred to as "Sinking sort"
+            -> considered as the simplest sorting algorithm
+
+        What is Iteration?
+            -> is the act of repeating.
+            -> can also refer to a process wherein a computer program is instructed to perform a process over and over again repeatedly for a specific number of times or until a specific condition is met.
+       */
+
+      // lets proceed now with our codebase
+      // 6. lets create a loop to check how many times we must check the array to see if things are in order ...btw, in our example we will try to arrange the items in Ascending order.
+
+      /* we are going to execute this code using the "for" loop. in this script we need 3 parameters seperated by a semicolon.
+            -> 1st parameter: specified where the execution of code will start, in this example it started at the outer left side of the array, indicating that we'll start at the 0 index a.k.a the first value in the array. we ended the expression with a semicolon.
+            -> 2nd parameter: we need compare the length of the array indicating when the code will stop from executing.
+            -> 3rd parameter: we indicated an increment that will continue the script if the condition is haven't met yet.
+        */
+      for (let i = 0; i < size; i++) {
+        console.log("Iteration Count: " + (i + 1));
+        // for the example we counted 10 iterations.
+
+        // 7. lets create a script that will describe the process of comparing the datas inside the array in each iteration.
+        for (let j = 0; j < size - 1; j++) {
+          let currentElement = array[j];
+          let nextElement = array[j + 1];
+
+          // lets display the comparison of the current element and the next element.
+          console.log("Comparing " + currentElement + " and " + nextElement);
+
+          /* the inner loop inside each iteration will go from one element to the next. (left to right) until the second to last element is reached,
+                -> if the current element is bigger than the next element, the elements will "SWAP" or "SWITCH" places.
+            */
+          // 6. lets create a control structure that will let us compare the values of the current element with the next element.
+          if (currentElement > nextElement) {
+            /* note: if you want to arrange the elements in Ascending order:
+                            -> the current element should be (>) greater than the nextElement.
+                        if you want to arrange the elements in Descending order:
+                            -> the current element should be (<) less than the nextElement
+
+                    Additional notes during application:
+                        -> always make sure to change the words in the statements in the iteration and comparison loops to properly describe the execution of the script.
+                        -> we strongly recommend including the for loops that we included in the script above to help and guide you answer or describe the process of comparing and sorting data in an array during techinal exams.
+                */
+            console.log(
+              currentElement +
+                " is larger than " +
+                nextElement +
+                " .Swapping Elements"
+            );
+            array[j] = nextElement;
+            array[j + 1] = currentElement;
+
+            //lets display the array
+          } else {
+            console.log(
+              currentElement +
+                " is lesser than " +
+                nextElement +
+                " .No swapping needed"
+            );
+          }
+        }
+      }
+      // 7.
+      console.log(array);
+    </script>
+  </body>
+</html>

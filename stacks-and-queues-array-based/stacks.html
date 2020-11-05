@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- lets change the title of our file -->
+    <title>WD043-02: Stacks (Array Based)</title>
+  </head>
+  <body>
+    <!-- lets include a script tag -->
+    <script>
+      // 1. as a start lets create a class named "Stack"
+      class Stack {
+        // code executed when an object is created frm the Stack Class.
+        // 2. lets add the necessary functions for implementing the stack.
+
+        constructor() {
+          this.storage = [];
+          // what we did here is we try to create an object inside the stack
+
+          // Add elements inside/to the top of the stack.
+          // 3. Lets start adding elements by using the following script:
+          /*    -> 4. lets add a parameter inside the push function:
+                    for this example we used the word  "newElement" to hold the value of the element to be inserted.
+                    -> which will be used to add an element with its value at the end (top) of the storage array.
+                    -> reminder: the name of the parameter can be changed depending on the programmer. just make sure that the variable name that you are going to use is descriptive enough to avoid confusion when youre script gets too long
+            */
+        }
+        push(newElement) {
+          // 5. before adding the new element, first we need to retrieve the existing contents of the array.
+          // -> then, lets add the value of the newElement to the array usig the spread operator(...)
+          this.storage = [...this.storage, newElement];
+        }
+
+        // Determine the number of elements inside the stack.
+        count() {
+          // 7. lets count the number of elements inside the array(stack) using the length function in javascript
+          // return this.storage.length
+          /* 8. to check this function just type the following script inside the console tab: stack.count()
+                    -> but lets make the output displayed in a much specific manner:
+                */
+          return `The stack has ${this.storage.length} elements.`;
+        }
+        // lets also include a function that will check the element at the top of the stakc.
+        peek() {
+          /* this function is to identify which element is currently at the top of the stack(the last element that was inserted)
+
+            9. lets declare a variable that will contain the result of the function for this example we will name the variable as "topElement"
+
+            review: when declaring a variable you can choose between "let" or "const".
+
+            10. we need to retrieve the current elements existing inside the stack and array and determine the length of the array.
+
+            11. lets return the result of the function in a specific manner. 
+
+            additional notes:
+            
+            let topElement = this.storage[this.storage.length]
+                -> the result of this script will return an undefined
+
+            */
+
+          let topElement = this.storage[this.storage.length - 1];
+          return `The top element in the stack is  "${topElement}"`;
+        }
+
+        //Last but not least lets add a function that will remove an element from the "top" of the stack.
+        pop() {
+          /*
+                12. to remove the lasat element from the stack we will use the pop method
+
+                review: The pop method removes the last element from an array.
+                returns undefined
+                syntax:
+                    > arr.pop()
+
+                so first thing we need to do us to retrieve the existing elements in the array to serve as the argument.
+            */
+
+          this.storage.pop();
+          // 13. to check if it actually works write stack.peek to identify the new current top element. before using the pop method.
+        }
+      }
+
+      // lets create a new Stack! to test our code so far.
+      let stack = new Stack();
+
+      /* 6. Go to browser's Console tab, and write "stack" and hit enter.
+            -> lets start adding elements to the array.
+                note: the code will result in undefined as the expected behavior
+      */
+
+      stack.push(5);
+      stack.push(9);
+      stack.push(17);
+      stack.push(12);
+
+      stack.push;
+    </script>
+  </body>
+</html>

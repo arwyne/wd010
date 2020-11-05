@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- lets change the title of our file -->
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- lets include the script tag -->
+    <script>
+      // FOR THIS EXAMPLE we will be inserting the following values:
+      // -> 55, 11, 90, 4, 30, 100, 95
+      // we will use 55 as the root node
+
+      // 1. lets create 2 classes
+      // create a new class with the Name "Node"
+      class Node {
+        //Node is a component of the binary search tree
+        // -> everytime na gagawa or nagaadd ka ng new value sa BST ... need mo ng node
+        constructor(value) {
+          this.value = value; //"this." -> local variable
+          this.left = null;
+          this.right = null;
+        }
+
+        inOrder() {
+          if (this.left !== null) {
+            this.left.inOrder();
+          }
+          console.log(this.value);
+          if (this.right !== null) {
+            this.right.inOrder();
+          }
+        }
+
+        preOrder() {
+          // since the preOrder starts at the root node all were going to do here is to directly display the value of the root node
+          console.log(this.value);
+
+          // we created a control structure to check if the left and right subtrees are not empty -> and if the subtrees are not empty then the preOrder function will run.
+
+          // left subtree will run first
+          console.log(this.value);
+          if (this.left !== null) {
+            this.left.preOrder();
+          }
+
+          // right subtree will run last
+          if (this.right !== null) {
+            this.right.preOrder();
+          }
+        }
+
+        postOrder() {
+          // since in the post order... the left subtree runs first.. then it gets the value of the leaf with the smallest(minimum) value.
+          if (this.left !== null) {
+            this.left.postOrder();
+          }
+          // then the right subtree will follow.. then it gets the value of the left most leaf. then it works its way up.
+          if (this.right !== null) {
+            this.right.postOrder();
+          }
+          //now all we have to do us to display the value of the root node4
+          console.log(this.value);
+        }
+      }
+
+      // this is our second class with the name Binary Search Tree
+      // the binary search tree has 3 types of traversal
+      // ->inOrder, preOrder, and postOrder
+      class BinarySearchTree {
+        constructor() {
+          /* ang ginagawa nito ay iniinitialize siya ng root node, meaning eto yung start ng Binary search tree natin..
+                Tapos pag gumagalaw na siya..  nisset niya kung saan siya bilang "root" node.
+
+                "root" -> ay isang property ng BST wherein each tree starts with a root node.
+
+                // to be clear ... kahit rekta nlang siya na Binary search tree na class.
+            */
+          this.root = null;
+        }
+
+        inOrder() {
+          // Starts from the left substree, then do the root node and finally finishing at the right subtree. (ascending order).
+          // the result should be: 4, 11, 30, 55, 90, 95, 100
+
+          // I will create a ternary to check if the root node is not empty
+          this.root !== null ? this.root.inOrder() : null;
+          // -> this will allow us to call the inOrder function inside the nodes.
+        }
+
+        preOrder() {
+          // Starts from the root node, then to the left subtree and finally to the right subtree
+          // the result should be: 55, 11, 4, 30, 90, 100, 95
+
+          this.root !== null ? this.root.preOrder() : null;
+          // -> this will allow us to use the preOrder function inside the nodes.
+        }
+
+        postOrder() {
+          // Start from the left subtree, then to the right and finally going to the root node
+          // the result should be: 4, 30, 11, 95, 100, 90, 55
+
+          this.root !== null ? this.root.postOrder() : null;
+          // -> this will allow us to access or use the postorder function inside the nodes.
+        }
+
+        // what does the 'givenNode = null' mean inside the parameters of the add() function?
+        // Answer -> it means if a second parameter/value is not provided when it is invoked, the givenNode shall be empty.
+        add(value, givenNode = null) {
+          // to start adding nodes in the BST, lets add the following:
+          let newNode = new Node(value);
+
+          // lets create a condition to check wether the node will serve as the root node or not
+          if (this.root === null) {
+            // in this branch it checks if the root node is empty, and the first (new) node that will be added will automatically become the "root" node
+            this.root = newNode;
+
+            // Now that we added a root node, lets see how we can add nodes to the left and right subtrees.
+          } else if (givenNode === null) {
+            // we will add a new condition in the contrl structure to check if the root node is not empty
+
+            // if the givenNode is empty. the given node should be the root node. then the add() function is recursively called.
+            givenNode = this.root;
+            this.add(value, givenNode);
+          } else {
+            // if the root node and givenNode are not empty, we shall determine now if the values given us to be placed in the left or right subtrees.
+            // left subtree -> the givenNode should be less than the root node.
+            if (value < givenNode.value) {
+              // left subtree
+              if (givenNode.left === null) {
+                givenNode.left = newNode;
+              } else {
+                this.add(value, givenNode.left);
+              }
+            } else {
+              if (givenNode.righ === null) {
+                givenNode.right = newNode;
+              } else {
+                this.add(value, givenNode.right);
+              }
+            }
+          }
+        }
+        // lets find the node with the minimum value in our binary search subtrees
+        findMin() {
+          // this code will start at the root node and it will look at the current node's left subtree.
+        }
+
+        findMax() {
+          //this code runs similar to the findMin but instead of using the left subtree to look for the currentnode that we are in, we will be directing it to the "right" subtree.
+        }
+
+        isPresent() {
+          // next function that we are going to create will be used to check if the value(number) is present in our binary search tree.
+          let currentNode = this.root;
+
+          //the script will start at the root node and it compares the value to the root node
+          while (currentNode !== null) {
+            if (value === currentNode.value) {
+              return true;
+            }
+            // if the condition is "not" met. it checks if the value of the left subtree is not null. if the left subtree is not empty then, it works its way down making the first left subtree the new "currentNode" .. and it checks the condition in the first control structure again.
+            if (value < currentNode.value) {
+              currentNode = currentNode.left;
+            } else {
+              currentNode = currentNode.right;
+            }
+          }
+          // if neither of the conditions are met and there are no longer any subtrees. it will give out a return of false.. meaning the value is nor included in our BST.
+          return false;
+        }
+      }
+
+      // let try to invoke our BST
+      let tree = new BinarySearchTree();
+
+      // lets add the following values
+      tree.add(55); // root node
+      tree.add(11); // left subtree
+      tree.add(90); // right subtree
+      tree.add(4); // left subtree ->left
+      tree.add(30); // left subtree -> right
+      tree.add(100); // right subtree
+      tree.add(95); // right subtree
+    </script>
+  </body>
+</html>

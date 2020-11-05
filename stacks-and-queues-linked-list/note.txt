@@ -1,0 +1,37 @@
+A linked list is a data structure wherein elements are stored in a linear fashion just like an array.
+
+However, unlike an array whose memory addresses are ordered, linked lists are scattered and elements only point the next or previous element to it.
+
+A linked list has a different approach in organizing data. It uses nodes that contain the following:
+
+    data - the actual value in the node
+    next - a pointer to the node next to it
+    prev - a pointer to the node before it
+
+A linked list has a head (start of the list) and a tail (end of the list). The nodes can be linked in one direction (singly-linked) or both ways (double-linked).
+
+Below is a figure illustrating a singly-linked list.
+
+    node         node          node
+    head                       tail
+    11    next    30    next    25    next   null
+    data         data          data
+
+
+may address pointing to next element si linked list.
+si linked list laging may element + pointer to the next
+kaya siya nagiging linked, si array walang ganun
+
+
+Linked Lists vs Arrays - Size
+
+    In Progamming language like Java and C, the size of arrays are fixed. You need to declare the size of the array that you are creating. This means that storing dynamic amounts of data would be a problem.
+
+    Linked Lists, on the other hand, are dynamic and flexible when it comes to its size.
+    
+
+Linked List vs Arrays - Traversal
+
+    When traversing arrays, elements are assigned to indexes. So, to access a specific element in the array, we need to call the array name followed by the element's index number.
+
+    On the other hand, the entry point of a Linked List is its head node. So, to access a specific object in a Linked List, we need to traverse from its head to the specific node object.

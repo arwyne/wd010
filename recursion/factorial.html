@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- lets change the title for this file -->
+    <title>WD034-03: Recursion-Factorial</title>
+  </head>
+  <body>
+    <script>
+      /*
+            Factorial -> multiplies a number by every number below it up to 1
+
+            When we are doing Recursions there are 2 stages:
+            1 - Pre-recursion: Factorial Loop
+            2 - Converting the Factorial Loop into a recursive function
+        */
+
+      // Pre-recursion: Factorial Loop
+      let num = 7; // this variable holds the value of the factorial.
+      let display = num; // this variable is for display only.
+
+      let loopFactorial = 1;
+
+      while (num >= 1) {
+        // lets display the number
+        // console.log(`Iteration # ${num}`);
+        /*
+                MULTIPLICATION ASSIGNMENT OPERATOR
+                    -> the multiplication assignment operator multiplies a variable by the value of the right operand and assigns the result to the variable.
+
+                    total is multiplied by x
+                    result is assigned to total
+            */
+        loopFactorial *= num;
+        num--; // we used decrement to avoid infinite loop.
+      }
+
+      //   console.log(`${display}! = ${loopFactorial}`);
+
+      // 2. Converting the factorial loop to a recursive function
+      function rFactorial(num) {
+        if (num > 1) return num * rFactorial(num - 1);
+        if (num === 0 || num == 1) return 1;
+      }
+      // lets display the result of the function inside the console.
+      console.log(`The Factorial of ${display}! is ${rFactorial(7)}`);
+
+      //   // other solution
+      //   let num = 7;
+      //   const rFractorial = (num) => {
+      //     if (num < 0) return null;
+      //     if (num === 0) return 1;
+
+      //     return num * rFactorial(num - 1);
+      //   };
+      //   console.log(`The Factorial of ${num}! is ${rFactorial(7)}`);
+
+      // // lets do another example of a factorial but with a different approach
+      // // 1. create 2 variables
+      // let numValue = 7; // this variable holds the value of the factorial.
+      // let factorial = 1;
+
+      // // 2. lets create a loop to solve for the factorial this time using the "for" loop
+
+      // for (let i = 1; i <= numValue; i++) {
+      //   // 3. lets display a description on how the loop was able to come up with the result in the console.
+      //   console.log(`${factorial} x ${i} = ${(factorial *= i)}`);
+      // }
+
+      // // 4. lets now display the result in the console
+      // console.log(`Factorial of ${numValue} is ${factorial}.`);
+
+      // Stage 2: Converting the factorial loop to a recursive call/function
+      // 1. declare the function for the factorial
+      const factorial = (x) => {
+        // termination
+        if (x < 0) return null;
+        // base case
+        if (x === 0) return 1;
+        // recursive call
+        return x * factorial(x - 1);
+      };
+      // lets display the result in the console
+      console.log(`The Factorial is ${factorial(4)}.`);
+    </script>
+
+    <!-- SUMMARY (SESSION WRAP UP) 
+    
+    -> in Mathematics, a factorial is a function that multiplies a number by every number below it(up to the least positive number --1).
+
+    PATTERN OF A FACTORIAL
+
+    1. The number starts with what it is fiven (2! Starts with 1).
+    the number decreases by 1 until 1 is reached.
+
+    2. The last value in the factorial will always be 1. (Base case)
+
+    Rules for designing a recursive call algorithm
+      1. Determine the base case.
+      2. Determine the recursive call.
+      3. Combine the 2
+      4. Each element must reduce the size of the problem and move it towards the base case.
+      5. The base case, when reached must terminate without any call to the recursive algorithm.
+
+    -->
+  </body>
+</html>

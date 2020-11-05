@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WD034-02: Queues(Array-Based)</title>
+  </head>
+  <body>
+    <!-- lets include a script tag -->
+    <script>
+      // 1. create a class for Queue
+      class Queue {
+        // 2. lets include the needed function in order to complete the script.
+
+        // 3. Code executed when an object is created from the Queue class.
+        constructor() {
+          this.storage = [];
+        }
+
+        /* 4. Add element to the queue.
+                -> we are going to use enqueue() to add a new element and make sure to add a parameter in the expression.
+        */
+        enqueue(value) {
+          // retrieve first the current elements stored in the queue and then add the parameter containing the value of the new element.
+          this.storage = [...this.storage, value];
+        }
+
+        // removes element in the beginning of the queue.
+        dequeue() {
+          this.storage.shift();
+        }
+
+        // lets create a function that will determine the size of the queue.
+        size() {
+          /* first we have to retrieve the current elements stored in our array and use the length function to determine its size
+                -> display the output or the return in a specific manner
+           */
+          return `The queue has ${this.storage.length} elements`;
+        }
+
+        // lets include a function that will display the queue elements.
+        print() {
+          // we retrieve the current contents of our queue and placed it inside a variable named "element"
+          for (let element of this.storage) {
+            console.log(element);
+          }
+        }
+      }
+
+      let queue = new Queue();
+      queue.enqueue(4);
+      queue.enqueue(2);
+      queue.enqueue(7);
+      queue.enqueue(3);
+    </script>
+  </body>
+</html>

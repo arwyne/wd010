@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WD034-04: Sentence Traversal</title>
+  </head>
+  <body>
+    <!-- lets include the script tag -->
+    <script>
+      // 1. lets declare a variable that will hold the value of the string we are trying to traverse.
+
+      let text = "bootcamp";
+      // 2. lets create a loop for the sentence traversal using "for" loop
+      //   for (let i = 0; i < text.length; i++) {
+      //     console.log(text[i]);
+      //   }
+
+      // 3. COnvert the loop into a recursive function call
+      const rTextTraversal = (text) => {
+        // 4. lets display the text that will be traversed
+        console.log(text);
+        console.log(text[0]);
+        text = text.substr(1); //removes the first character inside the string
+
+        // 5. lets create a contrl structure that will determine the length of the text and to determine when the recursive call will end.
+
+        //base case
+        if (text.length > 0) {
+          rTextTraversal(text); //recursive call
+        }
+      };
+
+      let message = "bootcamp";
+      rTextTraversal(message);
+    </script>
+
+    <!-- WHAT HAPPENED HERE?
+        
+        -> The function called itself repeatedly until the "if" condition is no longer met
+
+        -> after the recursive calls have ended, the code is then evaluated accordingly by multiplying the result of each recursive call.
+             -> therefore, arriving at the same answer as we did in our for loop.
+
+        WHICH ONE IS THE RECURSIVE CALL?
+         -> rTraversal (text) -> because, it call itself.
+
+         -> text.substr(1) -> reduces the length of the text so that eventually the base case inside the if condition will not be met.
+
+        WhICH ONE IS THE BASE CASE?
+         -> CONTROL STRUCTURE "if condition -> because it stopped the recursive call.
+
+         What is the common use of "traversal" when it comes to app development
+    
+    -->
+  </body>
+</html>

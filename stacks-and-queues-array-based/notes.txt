@@ -1,0 +1,19 @@
+A data structure is a specialized format for organizing, processing, retrieving and storing data.
+
+Understanding data structures, algorithms and basic programming concepts is essential for one to become a better developer.
+
+Nowadays most of those problems are solved using modern tools and libraries, but having deeper knowledge in that area will definitely broaden your perspective of software development.
+
+--------------
+
+A stack is a pile of items neatly arranged atop each other. A new item can be pushed onto the top of a stack, one at a time, building to the height of the stack.
+
+Reversely, each item can be popped off, one at a time, from the top of the stack. The last item is always the first item out (LIFO or Last In First Out).
+
+
+
+-----------------
+
+A queue is a line of items, neatly arranged next to each other. A new item can be enqueued to the end of the line, one at a time, elongating the line.
+
+Reversely, each item can be dequeued from the front of the line, one at a time. The first item is always the firs item out (FIFO or First In First Out).

@@ -1,0 +1,5 @@
+Sorting is a common action done to arrange something (it might be records or objects) in a particular order.
+
+In computing, being able to sort through huge amounts of data is extremely important to allow programs to find relevant information more effectively
+
+In this session, we will tackle two basic sorting algorithms, namely bubble and selection sorting.

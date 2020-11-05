@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 1. lets change the title of our document -->
+    <title>WD043-01: Selective Sort</title>
+  </head>
+  <body>
+    <!-- 2. input script tag invoke an inline javascript 
+        
+        What is Selection Sort?
+            -> In this type of algorithm, it uses two arrays, The first array contains the original elements and the second array contains the sorted elements.
+
+        How does it work?
+            -> sorting in this algorithm is done by repeatedly identifying the smallest values/element in the first array, and extracting it from the first array and then putting it in a sequential manner on the 2nd array.
+    
+    -->
+
+    <script>
+      /* 3. lets declare 3 variables
+            -> 1st variable lets declare a series of elements/numbers inside an array, so in this example I named the first variable "original array" and it contains the array values it's original "unsorted" form.
+            -> 2nd variable: lets declare a blank array that will soon contain the series of numbers in the first variable but this time in a "sorted manner".
+        */
+      let originalArray = [9, 10, 15, 2, 1, 7, 4, 3];
+      let sortedArray = [];
+      let count = 1;
+
+      // lets display the original array inside the console
+      console.log("This is the Original Array " + originalArray);
+      console.log(
+        "These are the contents of the sorted array which is blank for now " +
+          sortedArray
+      );
+
+      /* 4. let count the number of iterations in order to sort the array properly
+            for this example we will be using while loop
+                -> inside the expression we should first identify the length of the array.
+        */
+      while (originalArray.length > 0) {
+        console.log("Iteration Count: " + count);
+
+        // we declared a variable that will store the element that currently has the smallest value inside the original array.
+        let smallest = originalArray[0];
+
+        for (let i = 0; i < originalArray.length; i++) {
+          if (smallest > originalArray[i]) {
+            smallest = originalArray[i];
+          }
+        }
+
+        // lets display here the element with the smallest value
+        console.log("The Smallest number is: " + smallest);
+
+        // 5. Once we identify the smallest value inside the original Array we need to push the value inside the sorted Array
+        sortedArray.push(smallest);
+
+        // 6. lets extract/remove the smallest element from the original array.
+        // we try to locate the smallest value, find its index and removed it from that location.
+        originalArray.splice(originalArray.indexOf(smallest), 1);
+
+        // 7. lets display the final result of our script
+        console.log("This is now the Original Array " + originalArray);
+        console.log("This is now the Sorted Array " + sortedArray);
+        count++;
+      }
+    </script>
+  </body>
+</html>

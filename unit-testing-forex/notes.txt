@@ -1,0 +1,70 @@
+Unit Testing - a principle wherein code is tested as small, isolated units.
+
+A unit is an atomic value of any software/ system.
+
+Based on agreed upon parameters, a unit can be any of the ff:
+
+ - a single function
+ - each endpoint in a backend API
+ - a workflow in the BE or FE
+ - responsiveness of user experience
+
+there could be levels in unit definition. Ex: First level: functions, second level: components
+
+Are Unit Testing & TDD the same?
+Unit Testing:
+    .. a principle wherein code is tested as small, isolated units.
+    .. tests can be written before, during, or after functional code is written
+
+TDD:
+    .. a mindset wherein tests drive
+
+
+
+TDD is not just tests per se - it is about the underlying design and development processes.
+
+
+
+Why organizations cannot afford to do so:
+
+Nearly infinite tests that you can write therefore it requires a lot of effort. Exhaustive.
+
+Simply there is not enough developers who have the mindset
+
+
+
+Unit testing does mean little when you develop small-scale apps, such as what we develop during and for the coding bootcamp.
+
+
+*It’s hard to debug when application is already live.
+*In small apps, you can think of all the features in your head.
+
+*In bootcamp, our goal is for the students to roll-out features.
+
+*Regression testing is the most important value of unit testing to Enterprise Apps. (Meaning if the fixes introduced did not create any bugs)
+
+*Manual testing is unreliable.
+
+*Cognitive bias when manually testing. As a tester, when you’re used to a certain way of testing, you feel that you won’t commit a mistake.
+
+
+
+What are the rules of Unit Testing?
+1. Don't write production code unless it is to make a failing test pass.
+2. Don't write a unit test that tests for multiple conditions.
+3. Don't write production code that is sufficient to pass one fialing unit test
+
+
+You are not allowed to write any more of production code than is sufficient to pass one failing unit test.
+
+Do not add more features if the feature already passed the test.
+
+Prevent scope creep on the side of the features
+
+Scope creep 
+
+aka “requirement creep” or “kitchen sink syndrome”
+
+in project management refers to changes, continuous or uncontrolled growth in a project's scope, at any point after the project begins.
+
+

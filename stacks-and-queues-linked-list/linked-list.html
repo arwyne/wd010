@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- lets change the title -->
+    <title>WD034-05: Linked List</title>
+  </head>
+  <body>
+    <script>
+      // lets first create a class with a name of Node
+      class Node {
+        constructor(value) {
+          this.value = value;
+          this.next = null;
+        }
+      }
+
+      // 2nd step we need to create a second class named "LinkedList"
+      class LinkedList {
+        constructor() {
+          this.head = null;
+          this.length = 0;
+        }
+
+        // the next function is for us to add a node after the last current tail
+        push(value) {
+          this.enqueue(value);
+        }
+
+        // remove the tail node
+        pop() {
+          if (this.head != null) {
+            let currentNode = this.head;
+            let previousNode;
+
+            while (currentNode.next != null) {
+              previousNode = currentNode;
+              currentNode = currentNode.next;
+            }
+            previousNode.next = null;
+          }
+        }
+
+        // Add a node after the tail
+        enqueue(value) {
+          //it allows us to create a node with the given value.
+          let newNode = new Node(value);
+
+          if (this.head == null) {
+            //this will assign the "first" created node as the head
+            this.head = newNode;
+          } else {
+            //create a pointer to determine that the current node (starts in the head)
+            let currentNode = this.head;
+
+            // traverse to each node until a node with empty 'next' is detected.
+            while (currentNode.next != null) {
+              //lets assign the next node as the upcoming current node
+
+              currentNode = currentNode.next;
+            }
+            // At this point, a node with empty "next" is reached. -> lets assign the new node as the next node of the current tail.
+            currentNode.next = newNode;
+          }
+
+          // Add +1 to the length of the list
+          this.length++;
+        }
+
+        // remove the head node
+        dequeue() {
+          if (this.head != null && this.head.next != null) {
+            this.head = this.head.next;
+          } else {
+            this.head = null;
+          }
+        }
+
+        // determine the size of nodes inside the linked list
+        size() {
+          return this.length;
+        }
+
+        // display the nodes in the linked list
+        print() {
+          let currentNode = this.head;
+          if (currentNode != null) {
+            while (currentNode.next != null) {
+              console.log(currentNode.value);
+              currentNode = currentNode.next;
+            }
+            // print/display the nodes values
+            console.log(currentNode.value);
+          }
+        }
+      }
+
+      // lets try to invoke our linkedlist using queue
+      let queue = new LinkedList();
+
+      // lets try to invoke the linkedlist using stack
+      let stack = new LinkedList();
+
+      // to add nodes inside the queue.
+      queue.enqueue(173);
+      queue.enqueue(127);
+      queue.enqueue(531);
+
+      // to add nodes inside the stack.
+      stack.push(10);
+      stack.push(45);
+      stack.push(100);
+      stack.push(75);
+    </script>
+  </body>
+</html>
